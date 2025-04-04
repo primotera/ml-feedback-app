@@ -94,17 +94,17 @@ function Home() {
 
   return (
     <main className="container mx-auto px-4 py-8">
-      <h2 className="text-2xl font-bold mb-6 text-center text-gray-800">
+      <h2 className="text-2xl font-bold mb-6 text-center text-gray-800 dark:text-gray-100">
         Évaluation des prédictions du modèle
       </h2>
       
       {loading ? (
         <div className="text-center py-10">
-          <div className="inline-block animate-spin rounded-full h-8 w-8 border-t-2 border-b-2 border-blue-500"></div>
-          <p className="mt-2 text-gray-600">Chargement des prédictions...</p>
+          <div className="inline-block animate-spin rounded-full h-8 w-8 border-t-2 border-b-2 border-blue-500 dark:border-blue-400"></div>
+          <p className="mt-2 text-gray-600 dark:text-gray-300">Chargement des prédictions...</p>
         </div>
       ) : error ? (
-        <div className="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded">
+        <div className="bg-red-100 dark:bg-red-900 border border-red-400 dark:border-red-700 text-red-700 dark:text-red-200 px-4 py-3 rounded">
           {error}
         </div>
       ) : (
@@ -126,16 +126,16 @@ function Home() {
 function About() {
   return (
     <div className="max-w-4xl mx-auto px-4 py-8">
-      <h2 className="text-2xl font-bold mb-6 text-gray-800">À propos</h2>
-      <div className="bg-white shadow-md rounded-lg p-6">
-        <p className="text-gray-700 mb-4">
+      <h2 className="text-2xl font-bold mb-6 text-gray-800 dark:text-gray-100">À propos</h2>
+      <div className="bg-white dark:bg-gray-800 shadow-md rounded-lg p-6">
+        <p className="text-gray-700 dark:text-gray-200 mb-4">
           Cette application permet aux utilisateurs d'évaluer les prédictions d'un modèle de langage et de fournir des corrections lorsque nécessaire.
         </p>
-        <p className="text-gray-700 mb-4">
+        <p className="text-gray-700 dark:text-gray-200 mb-4">
           En collectant ces retours, nous pouvons améliorer continuellement les performances du modèle et sa précision dans différents domaines.
         </p>
-        <h3 className="text-xl font-semibold mt-6 mb-3 text-gray-800">Comment ça marche ?</h3>
-        <ol className="list-decimal pl-6 space-y-2 text-gray-700">
+        <h3 className="text-xl font-semibold mt-6 mb-3 text-gray-800 dark:text-gray-100">Comment ça marche ?</h3>
+        <ol className="list-decimal pl-6 space-y-2 text-gray-700 dark:text-gray-200">
           <li>Consultez les prédictions disponibles sur la page d'accueil</li>
           <li>Pour chaque prédiction, indiquez si elle est correcte ou non</li>
           <li>Si la prédiction est incorrecte, fournissez la réponse correcte</li>
@@ -150,7 +150,7 @@ function App() {
   return (
     <AuthProvider>
       <Router>
-        <div className="min-h-screen bg-gray-50">
+        <div className="min-h-screen bg-gray-50 dark:bg-gray-900 transition-colors duration-200">
           <Header />
           <Routes>
             {/* Routes publiques */}
