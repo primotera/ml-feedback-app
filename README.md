@@ -11,13 +11,14 @@ Application web permettant aux utilisateurs d'évaluer les prédictions d'un mod
 - Système d'authentification complet (inscription, connexion, profil utilisateur)
 - Tableau de bord avec statistiques sur les performances du modèle
 - Historique des contributions par utilisateur
+- Mode sombre automatique (basé sur les préférences du navigateur)
 
 ## Technologies utilisées
 
 - React.js
 - React Router pour la navigation
 - Context API pour la gestion d'état global
-- Tailwind CSS pour le style
+- Tailwind CSS pour le style et le mode sombre
 - Axios pour les requêtes API
 - JWT pour l'authentification
 
@@ -40,6 +41,10 @@ npm start
 ```
 
 L'application sera accessible à l'adresse [http://localhost:3000](http://localhost:3000).
+
+## Mode sombre
+
+L'application prend en charge automatiquement le mode sombre en fonction des préférences de votre navigateur ou système d'exploitation. Aucune configuration supplémentaire n'est nécessaire.
 
 ## Configuration de l'API
 
