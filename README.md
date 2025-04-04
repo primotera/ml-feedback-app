@@ -8,12 +8,18 @@ Application web permettant aux utilisateurs d'évaluer les prédictions d'un mod
 - Interface pour évaluer si une prédiction est correcte ou non
 - Possibilité de fournir une correction pour les prédictions inexactes
 - Stockage des feedbacks pour améliorer le modèle
+- Système d'authentification complet (inscription, connexion, profil utilisateur)
+- Tableau de bord avec statistiques sur les performances du modèle
+- Historique des contributions par utilisateur
 
 ## Technologies utilisées
 
 - React.js
-- Tailwind CSS
+- React Router pour la navigation
+- Context API pour la gestion d'état global
+- Tailwind CSS pour le style
 - Axios pour les requêtes API
+- JWT pour l'authentification
 
 ## Installation
 
@@ -37,16 +43,45 @@ L'application sera accessible à l'adresse [http://localhost:3000](http://localh
 
 ## Configuration de l'API
 
-Pour connecter l'application à votre propre API de modèle de langage, modifiez le fichier `src/App.js` en remplaçant les données de simulation par les appels à votre API.
+Pour connecter l'application à votre propre API de modèle de langage, modifiez les fichiers suivants :
 
-Vous devrez implémenter les endpoints suivants côté serveur :
-- GET /predictions - Pour récupérer les prédictions à évaluer
-- POST /feedback - Pour envoyer les feedbacks des utilisateurs
+### Authentification (src/context/AuthContext.js)
+Remplacez les fonctions simulées par des appels à votre API d'authentification :
+```javascript
+// Exemple pour la connexion
+const response = await axios.post('https://votre-api.com/auth/login', { email, password });
+```
+
+### Feedbacks (src/App.js)
+Remplacez la simulation de données par des appels à votre API pour récupérer et stocker les feedbacks :
+```javascript
+// Récupération des prédictions
+const response = await axios.get('https://votre-api.com/predictions');
+setPredictions(response.data);
+
+// Envoi de feedback
+axios.post('https://votre-api.com/feedback', {
+  predictionId: id,
+  isCorrect,
+  correction
+});
+```
+
+### Tableau de bord (src/components/dashboard/Dashboard.js)
+Connectez le tableau de bord à votre API pour récupérer les statistiques réelles :
+```javascript
+const response = await axios.get('https://votre-api.com/dashboard/stats');
+setStats(response.data);
+```
 
 ## Structure du projet
 
 - `src/components/` - Composants React réutilisables
-- `src/App.js` - Composant principal et logique de l'application
+  - `auth/` - Composants liés à l'authentification
+  - `profile/` - Composants du profil utilisateur
+  - `dashboard/` - Composants du tableau de bord
+- `src/context/` - Contextes React pour la gestion d'état global
+- `src/App.js` - Composant principal et routage de l'application
 - `public/` - Fichiers statiques
 
 ## Personnalisation
